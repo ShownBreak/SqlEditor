@@ -20,6 +20,8 @@ import sqlFormatter from "sql-formatter";
 import { Parser } from 'node-sql-parser';
 window.sqlLint = new Parser();
 
+import '../plugins/sql-lint';
+
 
 // 设置编辑器的最小高度
 const MIN_HEIGHT = 450
@@ -34,7 +36,7 @@ export default {
   },
   watch: {
     code() {
-      this.sqlLintCheck(this.code)
+      // this.sqlLintCheck(this.code)
     }
   },
   mounted() {
