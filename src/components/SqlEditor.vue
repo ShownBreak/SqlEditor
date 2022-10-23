@@ -59,26 +59,6 @@ export default {
       let str = sqlFormatter.format(this.codemirror.getValue(), {language: 'sql'});
       this.codemirror.setValue(str);
     },
-
-    sqlLintCheck(text) {
-      const sqlLint = window.sqlLint;
-      const parse = sqlLint.parse || sqlLint.astify;
-      this.codemirror.markClean()
-      try { 
-        parse(text); 
-      } catch (err) {
-        let { location } = err;
-        // console.log(err);
-        // console.log(expected, message, location, name);
-        if (location) {
-          this.codemirror.getDoc().markText(
-            { line: location.start.line - 1, ch:  location.start.offset-1 },
-            { line: location.end.line - 1, ch:  location.end.offset-1 },
-            { className: 'error' }
-          )
-        }
-      }
-    }
   }
 }
 </script>
