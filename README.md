@@ -2,7 +2,7 @@
  * @Author: 张飞青
  * @Description: readme
  * @LastEditors: zhangfeiqing
- * @LastEditTime: 2022-10-21 09:26:20
+ * @LastEditTime: 2022-10-23 17:39:45
  * Copyright (c) 2022 by ziroom, All Rights Reserved. 
 -->
 # sql-editor-vue
@@ -22,3 +22,11 @@
 1.多条sql(以分号为单条sql结束标识符)执行,返回多个结果集
 
 2.执行前校验select语句是否走了索引
+
+##安装
+
+yarn
+
+##运行
+
+yarn serve
