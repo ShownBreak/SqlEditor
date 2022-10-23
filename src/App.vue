@@ -2,7 +2,7 @@
  * @Author: 张飞青
  * @Description: 
  * @LastEditors: zhangfeiqing
- * @LastEditTime: 2022-10-23 16:19:59
+ * @LastEditTime: 2022-10-23 18:42:40
  * Copyright (c) 2022 by ziroom, All Rights Reserved. 
 -->
 <template>
@@ -13,8 +13,8 @@
           <Header />
         </el-header>
         <el-main>
-          <SqlEditor />
-          <Output />
+          <SqlEditor @changeBottom="changeBottom" @error="errorListChange" />
+          <Output :index="botttomIndex" :errorList="errorList" />
         </el-main>
       </el-container>
     </el-container>
@@ -33,6 +33,20 @@ export default {
     Output,
     SqlEditor
   },
+  data() {
+    return {
+      botttomIndex: '1',
+      errorList: []
+    }
+  },
+  methods: {
+    changeBottom(index) {
+      this.botttomIndex = index;
+    },
+    errorListChange(info) {
+      this.errorList.push(info);
+    }
+  }
 }
 </script>
 

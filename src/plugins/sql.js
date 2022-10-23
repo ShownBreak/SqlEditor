@@ -1,12 +1,11 @@
 /*
  * @Author: 张飞青
  * @LastEditors: zhangfeiqing
- * @LastEditTime: 2022-10-23 17:42:29
+ * @LastEditTime: 2022-10-23 18:10:45
  * Copyright (c) 2022 by ziroom, All Rights Reserved. 
  */
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/dracula.css';
-import 'codemirror/addon/lint/lint.css'
 import 'codemirror/addon/hint/show-hint.css'
 import 'codemirror/addon/fold/foldgutter.css'
 
