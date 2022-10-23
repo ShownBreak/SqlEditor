@@ -2,7 +2,7 @@
  * @Author: 张飞青
  * @Description: Options
  * @LastEditors: zhangfeiqing
- * @LastEditTime: 2022-10-23 17:23:56
+ * @LastEditTime: 2022-10-23 17:54:36
  * Copyright (c) 2022 by ziroom, All Rights Reserved. 
  */
 export const Options = {
@@ -19,7 +19,7 @@ export const Options = {
   lineWrapping: true, //是否换行
   foldGutter: true, //是否折叠
   // 在行槽中添加行号显示器、折叠器、语法检测器`
-  gutters: ["CodeMirror-linenumbers","CodeMirror-foldgutter","CodeMirror-lint-markers"],
+  gutters: ["CodeMirror-lint-markers","CodeMirror-linenumbers","CodeMirror-foldgutter"],
   matchBrackets:true,// 匹配结束符号，比如"]、}"
   autoCloseBrackets: true , // 自动闭合符号
   styleActiveLine:true, // 显示选中行的样式
