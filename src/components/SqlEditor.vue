@@ -1,27 +1,20 @@
 <template>
   <div class="editor">
     <div class="editor__run">
-      <el-button type="primary" class="btn" @click="sqlLintCheck">执行</el-button>
       <el-button type="success" class="btn"  @click="autoFormatSelection">格式化</el-button>
     </div>
     <textarea ref="textarea" v-model="code" ></textarea>
-    <el-menu default-active="1" class="el-menu-demo"  mode="horizontal" @select="bottomChange">
-      <el-menu-item index="1">问题</el-menu-item>
-      <el-menu-item index="2">输出</el-menu-item>
-    </el-menu>
   </div>
 </template>
 <script>
 import _CodeMirror from 'codemirror'
 import '@/plugins/sql';
-import { Options } from '@/plugins/code-mirror-option';
-import sqlFormatter from "sql-formatter";
-
+import '@/plugins/sql-lint';
 import { Parser } from 'node-sql-parser';
+import sqlFormatter from "sql-formatter";
+import { Options } from '@/plugins/code-mirror-option';
+
 window.sqlLint = new Parser();
-
-import '../plugins/sql-lint';
-
 
 // 设置编辑器的最小高度
 const MIN_HEIGHT = 450
@@ -32,20 +25,19 @@ export default {
       codemirror: null,
       code: "",
       cmOptions: Options,
-    }
-  },
-  watch: {
-    code() {
-      // this.sqlLintCheck(this.code)
+      current: '1',
     }
   },
   mounted() {
+    // 初始化
     this.codemirror = _CodeMirror.fromTextArea(this.$refs.textarea, this.cmOptions)
 
+    // 键盘按下， 展示提示
     this.codemirror.on("keypress", (instence) => {
       instence.showHint()
     });
 
+    // 编辑器内容同步
     this.codemirror.on("change", () => {
       this.code = this.codemirror.getValue();
     });
@@ -55,29 +47,21 @@ export default {
     })
   },
   methods: {
+    // 格式化
     autoFormatSelection() {
       let str = sqlFormatter.format(this.codemirror.getValue(), {language: 'sql'});
       this.codemirror.setValue(str);
     },
-    bottomChange(e) {
-      this.$emit('changeBottom', e);
-    },
-    sqlLintCheck() {
-      const text = this.code;
+
+    // 可以拿到 指定内容的语法解析结果
+    sqlLintCheck(text) {
       const sqlLint = window.sqlLint;
       const parse = sqlLint.parse || sqlLint.astify;
       try { 
         parse(text); 
       } catch (err) {
-        let { message } = err;
-        const date = new Date();
-        const now = `${this.padZero(date.getHours())}:${this.padZero(date.getMinutes())}:${this.padZero(date.getSeconds())}`
-        console.log({ now, message });
-        this.$emit('error', { now, message })
+        console.log(err)
       }
-    },  
-    padZero(num) {
-      return num >= 10 ? num : '0' + num;
     }
   }
 }

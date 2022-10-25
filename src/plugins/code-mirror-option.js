@@ -2,7 +2,7 @@
  * @Author: 张飞青
  * @Description: Options
  * @LastEditors: zhangfeiqing
- * @LastEditTime: 2022-10-23 17:54:36
+ * @LastEditTime: 2022-10-25 10:15:46
  * Copyright (c) 2022 by ziroom, All Rights Reserved. 
  */
 export const Options = {
@@ -26,7 +26,7 @@ export const Options = {
   hintOptions: {  
     completeSingle: false,
     tables: {
-      abnormal_feedback: ['cbry', 'like', 'follow'],
+      abnormal_feedback: ['cbry', 'like', 'follow'], // abnormal_feedback=表名， ['cbry', 'like', 'follow']=表字段
       dispatch_rule: ['uu', 'aa', 'cc'],
       file: ['alibaba','uu','ireader'],
       house_wait_rule: ['ee', 'dd', 'tt']

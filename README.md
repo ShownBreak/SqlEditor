@@ -2,27 +2,19 @@
  * @Author: 张飞青
  * @Description: readme
  * @LastEditors: zhangfeiqing
- * @LastEditTime: 2022-10-23 17:39:45
+ * @LastEditTime: 2022-10-25 10:16:04
  * Copyright (c) 2022 by ziroom, All Rights Reserved. 
 -->
-# sql-editor-vue
+# sql-editor
 
-## web-ui需实现功能:
+> 基于codemirror编辑器实现，包含sql-lint， sql-hint， sql- formatter， 语法高亮， 关键字，表名，表字段提示。主要是一些配置，没什么技术含量。
 
-必要功能：
+<div align=center><img src=https://smsimg.ziroom.com/97ed0527-cbb3-48d9-ab61-f60dbabf38f2.gif></div>
 
-1.sql语法检测
+#### 注意：
 
-2.sql语法提示(语法提示、表名、表字段提示)(需注意的点:复杂sql如多层嵌套、别名识别等能提示对应字段和语法检测)
-
-3.sql一键格式化
-
-## 选做功能:
-
-1.多条sql(以分号为单条sql结束标识符)执行,返回多个结果集
-
-2.执行前校验select语句是否走了索引
-
+- codemirror 编辑器并没有sql-lint.js 文件， 需要我们自己写，见 **@/plugins/sql-lint.js**
+- 表名和表字段提示： **hintOptions**
 ## 安装
 
 yarn

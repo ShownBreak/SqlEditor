@@ -1,14 +1,9 @@
 /*
  * @Author: 张飞青
- * @Description: 
  * @LastEditors: zhangfeiqing
- * @LastEditTime: 2022-10-23 17:47:50
+ * @LastEditTime: 2022-10-25 09:56:17
  * Copyright (c) 2022 by ziroom, All Rights Reserved. 
  */
-// CodeMirror, copyright (c) by Marijn Haverbeke and others
-// Distributed under an MIT license: https://codemirror.net/LICENSE
-
-// Depends on sqlLint.js from https://github.com/zaach/sqlLint
 
 // declare global: sqlLint
 import CodeMirror from 'codemirror';

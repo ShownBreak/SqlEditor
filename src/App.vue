@@ -2,51 +2,26 @@
  * @Author: 张飞青
  * @Description: 
  * @LastEditors: zhangfeiqing
- * @LastEditTime: 2022-10-23 18:42:40
+ * @LastEditTime: 2022-10-25 09:57:06
  * Copyright (c) 2022 by ziroom, All Rights Reserved. 
 -->
 <template>
   <el-container>
-      <el-aside width="250px"><Left /></el-aside>
       <el-container>
-        <el-header>
-          <Header />
-        </el-header>
         <el-main>
           <SqlEditor @changeBottom="changeBottom" @error="errorListChange" />
-          <Output :index="botttomIndex" :errorList="errorList" />
         </el-main>
       </el-container>
     </el-container>
 </template>
 <script>
-import Left from '@/components/Left';
-import Header from '@/components/Header';
-import Output from './components/Output';
 import SqlEditor from '@/components/SqlEditor';
 
 export default {
   name: 'APP',
   components: {
-    Left,
-    Header,
-    Output,
     SqlEditor
   },
-  data() {
-    return {
-      botttomIndex: '1',
-      errorList: []
-    }
-  },
-  methods: {
-    changeBottom(index) {
-      this.botttomIndex = index;
-    },
-    errorListChange(info) {
-      this.errorList.push(info);
-    }
-  }
 }
 </script>
 
@@ -73,7 +48,6 @@ export default {
   .el-main {
     position: relative;
     padding: 10px 16px 16px;
-    /* background: #999; */
   }
 
   .el-footer {
